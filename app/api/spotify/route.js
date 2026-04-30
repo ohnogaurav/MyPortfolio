@@ -24,6 +24,24 @@ async function getAccessToken() {
   return res.json();
 }
 
+async function fetchWithRetry(url, access_token) {
+  let res = await fetch(url, {
+    headers: { Authorization: `Bearer ${access_token}` },
+    cache: "no-store"
+  });
+
+  // If token expired → retry once with new token
+  if (res.status === 401) {
+    const { access_token: newToken } = await getAccessToken();
+    res = await fetch(url, {
+      headers: { Authorization: `Bearer ${newToken}` },
+      cache: "no-store"
+    });
+  }
+
+  return res;
+}
+
 export async function GET(request) {
   try {
     if (!CLIENT_ID || !CLIENT_SECRET || !REFRESH_TOKEN) {
@@ -31,20 +49,16 @@ export async function GET(request) {
     }
 
     const { access_token } = await getAccessToken();
-    const res = await fetch(NOW_PLAYING_URL, {
-      headers: { Authorization: `Bearer ${access_token}` },
-      cache: "no-store"
-    });
+    const res = await fetchWithRetry(NOW_PLAYING_URL, access_token);
 
     if (res.status === 204 || res.status > 400) {
       // fallback to recently played
-      const recentRes = await fetch(RECENTLY_PLAYED_URL, {
-        headers: { Authorization: `Bearer ${access_token}` },
-        cache: "no-store"
-      });
-
+      const recentRes = await fetchWithRetry(RECENTLY_PLAYED_URL, access_token);
       const recentData = await recentRes.json();
-      console.log("RECENT DATA:", recentData);
+
+      if (recentData.error) {
+        return Response.json({ isPlaying: false });
+      }
 
       if (!recentData.items || recentData.items.length === 0) {
         return Response.json({ isPlaying: false });
@@ -66,13 +80,12 @@ export async function GET(request) {
 
     if (!data.item) {
       // fallback to recently played
-      const recentRes = await fetch(RECENTLY_PLAYED_URL, {
-        headers: { Authorization: `Bearer ${access_token}` },
-        cache: "no-store"
-      });
-
+      const recentRes = await fetchWithRetry(RECENTLY_PLAYED_URL, access_token);
       const recentData = await recentRes.json();
-      console.log("RECENT DATA:", recentData);
+
+      if (recentData.error) {
+        return Response.json({ isPlaying: false });
+      }
 
       if (!recentData.items || recentData.items.length === 0) {
         return Response.json({ isPlaying: false });
