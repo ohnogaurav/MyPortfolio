@@ -138,11 +138,20 @@ export const experience = [
 ];
 
 export const skills = {
-  languages: ["Go", "Python", "TypeScript", "Java", "Rust", "SQL", "Bash"],
-  frameworks: ["FastAPI", "Spring Boot", "React", "React Native", "Next.js", "gRPC", "GraphQL"],
-  devops: ["Kubernetes", "Docker", "Terraform", "GitHub Actions", "AWS", "GCP", "Prometheus", "Grafana"],
-  databases: ["PostgreSQL", "Redis", "Cassandra", "DynamoDB", "BigQuery", "Elasticsearch"],
-  tools: ["Kafka", "Airflow", "Jaeger", "ONNX", "PyTorch", "Flink", "Triton"],
+  languages: ["Python", "SQL (MySQL)", "C++"],
+  frameworks: ["Flask (basic)", "FastAPI (basic)"],
+  devops: ["Git", "GitHub","AWS","Docker"],
+  databases: ["MySQL", "MongoDB (Atlas basics)"],
+  tools: [
+    "Selenium",
+    "PyAutoGUI",
+    "Pandas",
+    "Matplotlib",
+    "Hugging Face",
+    "Transformers",
+    "OpenCV",
+    "YOLO"
+  ],
 };
 
 export const research = [
