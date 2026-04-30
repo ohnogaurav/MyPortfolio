@@ -221,14 +221,14 @@ export const links = {
   github: "#",
   linkedin: "#",
   twitter: "#",
-  email: "alex.rivera@example.com",
-  phone: "+1 (415) 000-0000",
+  email: "gauravatwork17@gmail.com",
+  phone: "+91 9007979492",
   resume: "#",
   spotify: "#",
 };
 
 export const githubFallback = {
-  username: "alexrivera",
+  username: "ohnogaurav",
   repos: 42,
   stars: 318,
   followers: 127,

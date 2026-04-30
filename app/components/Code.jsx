@@ -66,6 +66,8 @@ function RepoCard({ repo }) {
 export default function Code() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [contributions, setContributions] = useState([]);
+  const [contribLoading, setContribLoading] = useState(true);
 
   useEffect(() => {
     fetch("/api/github")
@@ -77,6 +79,14 @@ export default function Code() {
       .catch(() => {
         setLoading(false);
       });
+
+    fetch("/api/github/contributions")
+      .then((r) => r.json())
+      .then((data) => {
+        setContributions(data);
+        setContribLoading(false);
+      })
+      .catch(() => setContribLoading(false));
   }, []);
 
   return (
@@ -119,6 +129,56 @@ export default function Code() {
             <div className="grid sm:grid-cols-3 gap-4">
               {(data?.featuredRepos || []).map((repo) => (
                 <RepoCard key={repo.name} repo={repo} />
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Open Source Contributions */}
+        <div className="mt-16">
+          <p className="font-mono text-xs tracking-widest uppercase text-text-tertiary mb-5">
+            Open Source Contributions
+          </p>
+          
+          {contribLoading ? (
+            <div className="grid sm:grid-cols-3 gap-4">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="card h-32 animate-pulse bg-subtle" />
+              ))}
+            </div>
+          ) : contributions.length === 0 ? (
+            <div className="card text-center py-10">
+              <p className="font-mono text-sm text-text-tertiary">
+                No open source contributions yet — coming soon
+              </p>
+            </div>
+          ) : (
+            <div className="grid sm:grid-cols-3 gap-4">
+              {contributions.map((contrib, i) => (
+                <a
+                  key={i}
+                  href={contrib.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card group flex flex-col gap-3 hover:border-muted transition-all duration-200"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <h4 className="font-mono text-sm font-medium text-text-primary group-hover:text-accent transition-colors">
+                      {contrib.name}
+                    </h4>
+                    <svg className="w-4 h-4 text-text-tertiary flex-shrink-0 mt-0.5 group-hover:text-accent transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
+                  <p className="text-text-tertiary text-xs leading-relaxed flex-1">
+                    {contrib.description}
+                  </p>
+                  <div className="mt-auto pt-2">
+                    <span className="inline-block px-2 py-1 rounded text-[10px] font-mono tracking-wider bg-accent/10 text-green-400 border border-green-400/20">
+                      {contrib.type}
+                    </span>
+                  </div>
+                </a>
               ))}
             </div>
           )}
