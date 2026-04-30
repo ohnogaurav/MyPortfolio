@@ -5,7 +5,7 @@ import { personal, links, blog, projects, experience, skills, research, beme } f
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
+  { label: "Journey", href: "#journey" },
   { label: "Skills", href: "#skills" },
   { label: "Code", href: "#code" },
 ];
@@ -30,7 +30,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
 
       const sections = [
-        "about", "projects", "experience", "skills", "code",
+        "about", "projects", "journey", "skills", "code",
         "research", "blog", "life", "nontechskills", "beme", "contact",
       ];
       let current = "";

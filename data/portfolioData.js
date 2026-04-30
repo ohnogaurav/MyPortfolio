@@ -2,9 +2,10 @@ export const personal = {
   name: "Gaurav Kumar",
   role: "Aspiring Backend Engineer",
   tagline: "I build systems that scale and interfaces that matter.",
-  bio: "Engineer with a deep interest in distributed systems, machine learning infrastructure, and developer tooling. I care about code that is correct, fast, and maintainable. Currently focused on backend architecture and ML pipelines.",
-  focusAreas: ["Distributed Systems", "ML Infrastructure", "Developer Tooling", "Cloud Architecture"],
-  careerDirection: "Building production-grade ML platforms and contributing to open-source tooling that makes developers faster.",
+  bio: "Backend-focused developer with hands-on experience in automation, APIs, and data-driven applications. I enjoy building systems that reduce manual work, handle real-world data, and scale reliably. Currently strengthening my skills in backend architecture and machine learning-based applications.",
+  focusAreas: ["Backend Development","Automation Systems","APIs & Data Workflows","Machine Learning Applications"
+],
+  careerDirection: "Building reliable backend systems and practical ML-powered applications that solve real problems and improve efficiency.",
   currentlyBuilding: "A distributed task queue with adaptive rate limiting in Go",
   location: "Jalandhar, India",
   available: true,

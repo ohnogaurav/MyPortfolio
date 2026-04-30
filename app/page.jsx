@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import Experience from "./components/Experience";
+import Journey from "./components/Journey";
 import Skills from "./components/Skills";
 import Code from "./components/Code";
 import Research from "./components/Research";
@@ -21,7 +21,7 @@ export default function Home() {
         <Hero />
         <About />
         <Projects />
-        <Experience />
+        <Journey />
         <Skills />
         <Code />
         <Research />

@@ -1,6 +1,6 @@
 import { experience } from "../../data/portfolioData";;
 
-function ExperienceCard({ item, index }) {
+function JourneyCard({ item, index }) {
   return (
     <div className="relative pl-8 border-l border-border pb-12 last:pb-0">
       {/* Timeline dot */}
@@ -47,21 +47,21 @@ function ExperienceCard({ item, index }) {
   );
 }
 
-export default function Experience() {
+export default function Journey() {
   return (
-    <section id="experience" className="section-pad border-t border-border">
+    <section id="journey" className="section-pad border-t border-border">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-[1fr_2fr] gap-16">
           {/* Label */}
           <div>
             <p className="section-label">Career</p>
-            <h2 className="section-title">Experience</h2>
+            <h2 className="section-title">Journey</h2>
           </div>
 
           {/* Timeline */}
           <div className="mt-1">
             {(experience || []).map((item, i) => (
-              <ExperienceCard key={item.id} item={item} index={i} />
+              <JourneyCard key={item.id} item={item} index={i} />
             ))}
           </div>
         </div>
