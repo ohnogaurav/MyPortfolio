@@ -64,6 +64,15 @@ export default function Hero() {
   return (
     <section className="min-h-screen flex flex-col justify-center section-pad pt-32">
       <div className="max-w-4xl">
+        {/* Profile Image Placeholder */}
+        <div className="mb-8 fade-up">
+          <img 
+            src="/pic.jpeg" 
+            alt="Profile" 
+            className="w-24 h-24 rounded-full object-cover border border-border bg-subtle"
+          />
+        </div>
+
         {/* Eyebrow */}
         <div className="flex items-center gap-3 mb-8 fade-up">
           <span className="w-6 h-px bg-accent" />
