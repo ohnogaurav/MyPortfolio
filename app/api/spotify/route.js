@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
@@ -21,7 +23,7 @@ async function getAccessToken() {
   return res.json();
 }
 
-export async function GET() {
+export async function GET(request) {
   try {
     if (!CLIENT_ID || !CLIENT_SECRET || !REFRESH_TOKEN) {
       return Response.json({ isPlaying: false, error: "Spotify not configured" });
@@ -30,6 +32,7 @@ export async function GET() {
     const { access_token } = await getAccessToken();
     const res = await fetch(NOW_PLAYING_URL, {
       headers: { Authorization: `Bearer ${access_token}` },
+      cache: "no-store"
     });
 
     if (res.status === 204 || res.status > 400) {
