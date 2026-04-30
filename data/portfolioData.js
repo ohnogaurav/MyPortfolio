@@ -1,12 +1,12 @@
 export const personal = {
-  name: "Alex Rivera",
-  role: "Full Stack Engineer",
+  name: "Gaurav Kumar",
+  role: "Aspiring Backend Engineer",
   tagline: "I build systems that scale and interfaces that matter.",
   bio: "Engineer with a deep interest in distributed systems, machine learning infrastructure, and developer tooling. I care about code that is correct, fast, and maintainable. Currently focused on backend architecture and ML pipelines.",
   focusAreas: ["Distributed Systems", "ML Infrastructure", "Developer Tooling", "Cloud Architecture"],
   careerDirection: "Building production-grade ML platforms and contributing to open-source tooling that makes developers faster.",
   currentlyBuilding: "A distributed task queue with adaptive rate limiting in Go",
-  location: "San Francisco, CA",
+  location: "Jalandhar, India",
   available: true,
 };
 
