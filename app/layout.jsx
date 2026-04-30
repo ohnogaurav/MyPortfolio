@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Alex Rivera — Engineer",
-  description: "Full Stack Engineer focused on distributed systems and ML infrastructure.",
+  title: "Gaurav Kumar — Portfolio",
+  description: "Portfolio of Gaurav Kumar",
 };
 
 export default function RootLayout({ children }) {

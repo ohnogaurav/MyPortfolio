@@ -53,8 +53,7 @@ export default function Contact() {
             <p className="section-label">Get In Touch</p>
             <h2 className="section-title mb-6">Contact</h2>
             <p className="text-text-secondary leading-relaxed mb-8">
-              Open to senior engineering roles, interesting technical problems, and research collaborations.
-              Reach out directly — I respond within 48 hours.
+              Open to backend engineering roles, real-world problem solving, and meaningful collaborations. Feel free to reach out — I usually respond within 24–48 hours.
             </p>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-400" />
