@@ -94,23 +94,14 @@ export default function Code() {
           <StatBox label="Followers" value={data?.followers} loading={loading} />
         </div>
 
-        {/* Contribution graph placeholder */}
-        <div className="card mb-10">
+        {/* Contribution graph */}
+        <div className="card mb-10 overflow-x-auto overflow-y-hidden">
           <p className="font-mono text-xs text-text-tertiary mb-4">Contribution Activity</p>
-          <div className="flex gap-0.5 flex-wrap">
-            {Array.from({ length: 52 * 7 }).map((_, i) => {
-              const intensity = Math.random();
-              const color =
-                intensity > 0.85 ? "bg-accent" :
-                intensity > 0.65 ? "bg-accent/50" :
-                intensity > 0.40 ? "bg-accent/20" :
-                "bg-subtle";
-              return <div key={i} className={`w-2.5 h-2.5 rounded-sm ${color}`} />;
-            })}
-          </div>
-          <p className="font-mono text-xs text-text-tertiary mt-3">
-            Contribution graph — connect GitHub API for live data
-          </p>
+          <img
+            src="https://ghchart.rshah.org/ohnogaurav"
+            alt="GitHub contribution graph"
+            className="w-full"
+          />
         </div>
 
         {/* Featured repos */}
