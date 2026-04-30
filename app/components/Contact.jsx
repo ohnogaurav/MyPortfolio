@@ -23,7 +23,7 @@ const socialLinks = [
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/alexrivera",
+    value: "https://www.linkedin.com/in/gauravconnects/",
     href: links.linkedin,
     icon: (
       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@ const socialLinks = [
   },
   {
     label: "GitHub",
-    value: `github.com/${links.github.replace("#", "alexrivera")}`,
+    value: `github.com/${links.github.replace("#", "ohnogaurav")}`,
     href: links.github,
     icon: (
       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

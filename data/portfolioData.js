@@ -218,8 +218,8 @@ export const beme = [
 ];
 
 export const links = {
-  github: "#",
-  linkedin: "#",
+  github: "https://github.com/ohnogaurav",
+  linkedin: "https://www.linkedin.com/in/gauravconnects/",
   twitter: "#",
   email: "gauravatwork17@gmail.com",
   phone: "+91 9007979492",
