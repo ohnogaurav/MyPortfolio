@@ -30,22 +30,27 @@ function SpotifyNowPlaying() {
 
   return (
     <div className="flex items-center gap-2 font-mono text-xs">
-      {track?.isPlaying ? (
+      {track?.title ? (
         <>
-          <span className="flex gap-0.5 items-end h-3">
-            {[1, 2, 3].map((i) => (
-              <span
-                key={i}
-                className="w-0.5 bg-accent rounded-sm"
-                style={{
-                  height: `${40 + i * 20}%`,
-                  animation: `blink ${0.6 + i * 0.15}s ease-in-out infinite alternate`,
-                }}
-              />
-            ))}
-          </span>
+          {track.isPlaying ? (
+            <span className="flex gap-0.5 items-end h-3">
+              {[1, 2, 3].map((i) => (
+                <span
+                  key={i}
+                  className="w-0.5 bg-accent rounded-sm"
+                  style={{
+                    height: `${40 + i * 20}%`,
+                    animation: `blink ${0.6 + i * 0.15}s ease-in-out infinite alternate`,
+                  }}
+                />
+              ))}
+            </span>
+          ) : (
+            <span className="w-3 h-3 rounded-full border border-muted" />
+          )}
           <span className="text-text-secondary">
-            <span className="text-accent">{track.title}</span>
+            <span className="text-text-tertiary mr-1">{track.isPlaying ? "Now Playing" : "Last Played"}:</span>
+            <span className="text-accent ml-1">{track.title}</span>
             {" — "}
             {track.artist}
           </span>

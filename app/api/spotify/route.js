@@ -6,6 +6,7 @@ const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
 
 const TOKEN_URL = "https://accounts.spotify.com/api/token";
 const NOW_PLAYING_URL = "https://api.spotify.com/v1/me/player/currently-playing";
+const RECENTLY_PLAYED_URL = "https://api.spotify.com/v1/me/player/recently-played?limit=1";
 
 async function getAccessToken() {
   const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
@@ -36,13 +37,57 @@ export async function GET(request) {
     });
 
     if (res.status === 204 || res.status > 400) {
-      return Response.json({ isPlaying: false });
+      // fallback to recently played
+      const recentRes = await fetch(RECENTLY_PLAYED_URL, {
+        headers: { Authorization: `Bearer ${access_token}` },
+        cache: "no-store"
+      });
+
+      const recentData = await recentRes.json();
+      console.log("RECENT DATA:", recentData);
+
+      if (!recentData.items || recentData.items.length === 0) {
+        return Response.json({ isPlaying: false });
+      }
+
+      const track = recentData.items[0].track;
+
+      return Response.json({
+        isPlaying: false,
+        title: track.name,
+        artist: track.artists.map(a => a.name).join(", "),
+        album: track.album.name,
+        albumArt: track.album.images?.[2]?.url ?? null,
+        songUrl: track.external_urls.spotify
+      });
     }
 
     const data = await res.json();
 
     if (!data.item) {
-      return Response.json({ isPlaying: false });
+      // fallback to recently played
+      const recentRes = await fetch(RECENTLY_PLAYED_URL, {
+        headers: { Authorization: `Bearer ${access_token}` },
+        cache: "no-store"
+      });
+
+      const recentData = await recentRes.json();
+      console.log("RECENT DATA:", recentData);
+
+      if (!recentData.items || recentData.items.length === 0) {
+        return Response.json({ isPlaying: false });
+      }
+
+      const track = recentData.items[0].track;
+
+      return Response.json({
+        isPlaying: false,
+        title: track.name,
+        artist: track.artists.map(a => a.name).join(", "),
+        album: track.album.name,
+        albumArt: track.album.images?.[2]?.url ?? null,
+        songUrl: track.external_urls.spotify
+      });
     }
 
     return Response.json({
