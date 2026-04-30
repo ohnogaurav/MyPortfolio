@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --border: #1e1e1e;
+  --accent: #e8ff47;
+  --accent-dim: #c5d93f;
+  --muted: #4a4a4a;
+  --subtle: #2a2a2a;
+  --text-primary: #f0f0f0;
+  --text-secondary: #888888;
+  --text-tertiary: #555555;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 2px;
+}
+
+@layer utilities {
+  .section-pad {
+    @apply px-6 md:px-12 lg:px-24 py-24;
+  }
+
+  .section-label {
+    @apply font-mono text-xs tracking-[0.2em] uppercase text-text-secondary mb-2;
+  }
+
+  .section-title {
+    @apply font-display text-3xl md:text-4xl font-bold text-text-primary;
+  }
+
+  .card {
+    @apply bg-surface border border-border rounded-xl p-6 hover:border-subtle transition-colors duration-300;
+  }
+
+  .tag {
+    @apply font-mono text-xs px-2.5 py-1 bg-subtle text-text-secondary rounded;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-accent text-black font-mono text-sm font-medium px-5 py-2.5 rounded hover:bg-accent-dim transition-colors duration-200;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-border text-text-secondary font-mono text-sm px-5 py-2.5 rounded hover:border-muted hover:text-text-primary transition-colors duration-200;
+  }
+
+  .divider {
+    @apply border-t border-border;
+  }
+}
+
+/* Staggered animation helpers */
+.anim-delay-100 { animation-delay: 100ms; }
+.anim-delay-200 { animation-delay: 200ms; }
+.anim-delay-300 { animation-delay: 300ms; }
+.anim-delay-400 { animation-delay: 400ms; }
+.anim-delay-500 { animation-delay: 500ms; }
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Timeline connector */
+.timeline-dot::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
