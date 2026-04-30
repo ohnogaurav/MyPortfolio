@@ -33,7 +33,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <p className="font-mono text-xs text-text-tertiary">
-            © {year} {personal.name}  — Backend & ML Systems
+            © {year} {personal.name} — Backend & ML Systems
           </p>
           <div className="mt-2">
             <SpotifyFooterWidget />

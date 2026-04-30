@@ -214,15 +214,11 @@ export const lifeGallery = [
 
 export const nonTechSkills = [
   "Technical Writing",
-  "System Design Facilitation",
-  "RFC Authoring",
-  "Engineering Mentorship",
-  "Public Speaking",
-  "Film Photography",
+  "Chess",
   "Video Editing",
-  "Guitar",
-  "Rock Climbing",
-  "Espresso Dialing",
+  "Public Speaking",
+  "Curiosity-Driven Learning",
+  "Fitness & Discipline",
 ];
 
 export const beme = [
