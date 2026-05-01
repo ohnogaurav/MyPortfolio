@@ -1,21 +1,22 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { personal, links, blog, projects, experience, skills, research, beme } from "../../data/portfolioData";;
+import Link from "next/link";
+import { personal, links } from "../../data/portfolioData";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Journey", href: "#journey" },
-  { label: "Skills", href: "#skills" },
-  { label: "Code", href: "#code" },
+  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Journey", href: "/#journey" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Code", href: "/#code" },
 ];
 
 const dropdownLinks = [
-  { label: "Research", href: "#research" },
-  { label: "Blog", href: "#blog" },
-  { label: "Life Beyond Code", href: "#life" },
-  { label: "Non-Tech Skills", href: "#nontechskills" },
-  { label: "BE-ME", href: "#beme" },
+  { label: "Research", href: "/#research" },
+  { label: "Blog", href: "/blog" },
+  { label: "Life Beyond Code", href: "/life" },
+  { label: "Non-Tech Skills", href: "/#nontechskills" },
+  { label: "BE-ME", href: "/be-me" },
 ];
 
 export default function Navbar() {
@@ -65,24 +66,24 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="font-mono text-sm text-accent font-medium tracking-widest">
+        <Link href="/" className="font-mono text-sm text-accent font-medium tracking-widest">
           {personal.name.split(" ")[0].toLowerCase()}.dev
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-1">
           {(navLinks || []).map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className={`px-3 py-1.5 font-mono text-xs tracking-wide transition-colors duration-200 rounded ${
-                isActive(l.href)
+                isActive(l.href.replace("/", ""))
                   ? "text-accent"
                   : "text-text-secondary hover:text-text-primary"
               }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
 
           {/* More dropdown */}
@@ -104,7 +105,7 @@ export default function Navbar() {
             {dropdownOpen && (
               <div className="absolute top-full right-0 mt-2 w-44 bg-surface border border-border rounded-lg py-1 shadow-xl">
                 {(dropdownLinks || []).map((l) => (
-                  <a
+                  <Link
                     key={l.href}
                     href={l.href}
                     onClick={() => setDropdownOpen(false)}
@@ -115,20 +116,20 @@ export default function Navbar() {
                     }`}
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
           </div>
 
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className={`px-3 py-1.5 font-mono text-xs tracking-wide transition-colors duration-200 rounded ${
               isActive("#contact") ? "text-accent" : "text-text-secondary hover:text-text-primary"
             }`}
           >
             Contact
-          </a>
+          </Link>
 
           <a
             href={links.resume}
@@ -158,15 +159,15 @@ export default function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-surface border-t border-border px-6 py-4 flex flex-col gap-1">
-          {[...navLinks, ...dropdownLinks, { label: "Contact", href: "#contact" }].map((l) => (
-            <a
+          {[...navLinks, ...dropdownLinks, { label: "Contact", href: "/#contact" }].map((l) => (
+            <Link
               key={l.href}
               href={l.href}
               onClick={() => setMobileOpen(false)}
               className="block py-2 font-mono text-sm text-text-secondary hover:text-text-primary transition-colors"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <a
             href={links.resume}
