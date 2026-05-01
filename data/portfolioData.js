@@ -204,12 +204,12 @@ export const blog = [
 ];
 
 export const lifeGallery = [
-  { id: 1, caption: "Hiking the Lost Coast Trail", date: "Oct 2023", emoji: "🏔️" },
-  { id: 2, caption: "Coffee crawl through Kyoto", date: "Mar 2023", emoji: "☕" },
-  { id: 3, caption: "Half Dome summit", date: "Aug 2023", emoji: "🧗" },
-  { id: 4, caption: "Film photography in Oaxaca", date: "Jan 2024", emoji: "📷" },
-  { id: 5, caption: "Building a mechanical keyboard", date: "Dec 2023", emoji: "⌨️" },
-  { id: 6, caption: "Reading week in the Sierras", date: "Sep 2023", emoji: "📚" },
+  { id: 1, caption: "Hiking the Lost Coast Trail", date: "Oct 2023", image: "/gallery/travel1.jpg", tag: "Travel" },
+  { id: 2, caption: "Coffee crawl through Kyoto", date: "Mar 2023", image: "/gallery/travel2.jpg", tag: "Travel" },
+  { id: 3, caption: "Half Dome summit", date: "Aug 2023", image: "/gallery/hobbies1.jpg", tag: "Hobbies" },
+  { id: 4, caption: "Film photography in Oaxaca", date: "Jan 2024", image: "/gallery/photography1.jpg", tag: "Photography" },
+  { id: 5, caption: "Building a mechanical keyboard", date: "Dec 2023", image: "/gallery/tech1.jpg", tag: "Tech" },
+  { id: 6, caption: "Reading week in the Sierras", date: "Sep 2023", image: "/gallery/hobbies2.jpg", tag: "Hobbies" },
 ];
 
 export const nonTechSkills = [
