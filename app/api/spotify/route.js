@@ -8,6 +8,18 @@ const TOKEN_URL = "https://accounts.spotify.com/api/token";
 const NOW_PLAYING_URL = "https://api.spotify.com/v1/me/player/currently-playing";
 const RECENTLY_PLAYED_URL = "https://api.spotify.com/v1/me/player/recently-played?limit=1";
 
+// Persistent memory across requests
+if (!globalThis.spotifyCache) {
+  globalThis.spotifyCache = {
+    isPlaying: false,
+    title: "Nothing played recently",
+    artist: "",
+    album: "",
+    albumArt: null,
+    songUrl: "#"
+  };
+}
+
 async function getAccessToken() {
   const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
   const res = await fetch(TOKEN_URL, {
@@ -30,7 +42,7 @@ async function fetchWithRetry(url, access_token) {
     cache: "no-store"
   });
 
-  // If token expired → retry once with new token
+  // retry once if token expired
   if (res.status === 401) {
     const { access_token: newToken } = await getAccessToken();
     res = await fetch(url, {
@@ -45,73 +57,79 @@ async function fetchWithRetry(url, access_token) {
 export async function GET(request) {
   try {
     if (!CLIENT_ID || !CLIENT_SECRET || !REFRESH_TOKEN) {
-      return Response.json({ isPlaying: false, error: "Spotify not configured" });
+      return Response.json(globalThis.spotifyCache);
     }
 
     const { access_token } = await getAccessToken();
-    const res = await fetchWithRetry(NOW_PLAYING_URL, access_token);
 
-    if (res.status === 204 || res.status > 400) {
-      // fallback to recently played
+    // 1. Try Now Playing
+    const nowPlayingRes = await fetchWithRetry(NOW_PLAYING_URL, access_token);
+
+    if (nowPlayingRes.status === 200) {
+      const data = await nowPlayingRes.json();
+
+      if (data.item) {
+        globalThis.spotifyCache = {
+          isPlaying: data.is_playing,
+          title: data.item.name,
+          artist: data.item.artists.map((a) => a.name).join(", "),
+          album: data.item.album.name,
+          albumArt: data.item.album.images?.[2]?.url ?? null,
+          songUrl: data.item.external_urls.spotify,
+        };
+        return Response.json(globalThis.spotifyCache);
+      }
+    }
+
+    // 2. Fallback conditions (204, >400, or no item)
+    if (
+      nowPlayingRes.status === 204 ||
+      nowPlayingRes.status > 400
+    ) {
       const recentRes = await fetchWithRetry(RECENTLY_PLAYED_URL, access_token);
       const recentData = await recentRes.json();
 
-      if (recentData.error) {
-        return Response.json({ isPlaying: false });
+      if (!recentData.error && recentData.items && recentData.items.length > 0) {
+        const track = recentData.items[0].track;
+
+        globalThis.spotifyCache = {
+          isPlaying: false,
+          title: track.name,
+          artist: track.artists.map(a => a.name).join(", "),
+          album: track.album.name,
+          albumArt: track.album.images?.[2]?.url ?? null,
+          songUrl: track.external_urls.spotify
+        };
+
+        return Response.json(globalThis.spotifyCache);
       }
 
-      if (!recentData.items || recentData.items.length === 0) {
-        return Response.json({ isPlaying: false });
-      }
+      return Response.json(globalThis.spotifyCache);
+    }
 
+    // 3. Final fallback (no item case)
+    const recentRes = await fetchWithRetry(RECENTLY_PLAYED_URL, access_token);
+    const recentData = await recentRes.json();
+
+    if (!recentData.error && recentData.items && recentData.items.length > 0) {
       const track = recentData.items[0].track;
 
-      return Response.json({
+      globalThis.spotifyCache = {
         isPlaying: false,
         title: track.name,
         artist: track.artists.map(a => a.name).join(", "),
         album: track.album.name,
         albumArt: track.album.images?.[2]?.url ?? null,
         songUrl: track.external_urls.spotify
-      });
+      };
+
+      return Response.json(globalThis.spotifyCache);
     }
 
-    const data = await res.json();
+    // 4. Return cached if everything fails
+    return Response.json(globalThis.spotifyCache);
 
-    if (!data.item) {
-      // fallback to recently played
-      const recentRes = await fetchWithRetry(RECENTLY_PLAYED_URL, access_token);
-      const recentData = await recentRes.json();
-
-      if (recentData.error) {
-        return Response.json({ isPlaying: false });
-      }
-
-      if (!recentData.items || recentData.items.length === 0) {
-        return Response.json({ isPlaying: false });
-      }
-
-      const track = recentData.items[0].track;
-
-      return Response.json({
-        isPlaying: false,
-        title: track.name,
-        artist: track.artists.map(a => a.name).join(", "),
-        album: track.album.name,
-        albumArt: track.album.images?.[2]?.url ?? null,
-        songUrl: track.external_urls.spotify
-      });
-    }
-
-    return Response.json({
-      isPlaying: data.is_playing,
-      title: data.item.name,
-      artist: data.item.artists.map((a) => a.name).join(", "),
-      album: data.item.album.name,
-      albumArt: data.item.album.images?.[2]?.url ?? null,
-      songUrl: data.item.external_urls.spotify,
-    });
-  } catch {
-    return Response.json({ isPlaying: false, error: "Failed to fetch" });
+  } catch (error) {
+    return Response.json(globalThis.spotifyCache);
   }
 }
