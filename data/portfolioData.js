@@ -157,20 +157,21 @@ export const skills = {
 export const research = [
   {
     id: 1,
-    title: "Adaptive Batching Strategies for Low-Latency ML Inference",
-    description: "An empirical study of dynamic batching configurations across transformer model sizes, evaluating throughput-latency tradeoffs under varying QPS.",
-    tags: ["ML Systems", "Inference", "Performance"],
+    title: "Face Recognition Attendance System (Edge + Cloud)",
+    description: "Built an automated attendance system using OpenCV-based facial recognition with location binding to prevent proxy marking, backed by cloud storage for real-time tracking.",
+    tags: ["Computer Vision", "Cloud", "Automation"],
     link: "#",
-    year: "2024",
+    year: "In progress",
   },
   {
     id: 2,
-    title: "Consistency Models in Distributed Task Queues",
-    description: "Analysis of consensus algorithms (Raft vs Paxos) applied to task scheduling, with focus on failure recovery and at-least-once delivery guarantees.",
-    tags: ["Distributed Systems", "Consensus", "Queuing"],
+    title: "Optimizing Chatbot Context for Accuracy & Cost",
+    description: "Improving chatbot performance by reducing irrelevant context using embedding-based relevance pruning, balancing accuracy, latency, and token cost.",
+    tags: ["LLM Systems", "RAG", "Optimization"],
     link: "#",
-    year: "2023",
+    year: "2025",
   },
+  
 ];
 
 export const blog = [

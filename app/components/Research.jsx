@@ -6,8 +6,8 @@ export default function Research() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-[1fr_2fr] gap-16">
           <div>
-            <p className="section-label">Academic</p>
-            <h2 className="section-title">Research</h2>
+            <p className="section-label">Applied Work</p>
+            <h2 className="section-title">Case Studies</h2>
           </div>
 
           <div className="space-y-5">
@@ -29,7 +29,7 @@ export default function Research() {
                     ))}
                   </div>
                   <a href={item.link} className="btn-outline text-xs px-3 py-1.5">
-                    View →
+                    Explore →
                   </a>
                 </div>
               </div>
