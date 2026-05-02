@@ -25,7 +25,7 @@ export default function BeMePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white overflow-x-hidden">
+    <main className="min-h-screen bg-black text-white">
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-5">
         <Link href="/" className="text-xs font-mono tracking-widest text-white/60 hover:text-white transition-colors uppercase">
           gaurav.dev
@@ -38,20 +38,22 @@ export default function BeMePage() {
         </Link>
       </nav>
 
-      <div className="flex flex-col lg:flex-row min-h-screen pt-20">
-        <div className="flex-1 flex flex-col justify-center px-8 md:px-14 lg:px-20 py-16 lg:py-24 max-w-none lg:max-w-[55%]">
-          <h1 className="text-[clamp(2.5rem,8vw,6rem)] font-black italic leading-none tracking-tight mb-6">
-            be me
-            <span className="inline-block w-3 h-3 md:w-4 md:h-4 rounded-full bg-[#d4f200] ml-1 mb-2 align-middle" />
-          </h1>
+      <div className="flex flex-col lg:flex-row">
+        <div className="flex-1 flex flex-col px-8 md:px-14 lg:px-20 py-28 max-w-none lg:max-w-[55%] pt-20">
+          <div className="relative pb-6">
+            <h1 className="text-[clamp(2.5rem,8vw,6rem)] font-black italic leading-none tracking-tight mb-6">
+              be me
+              <span className="inline-block w-3 h-3 md:w-4 md:h-4 rounded-full bg-[#d4f200] ml-1 mb-2 align-middle" />
+            </h1>
 
-          <p className="text-white/40 text-xs md:text-sm font-mono leading-relaxed mb-10 max-w-sm">
-            a short log of how i stopped using the world and started building it.
-            <br />
-            no jargon, just the trajectory.
-          </p>
+            <p className="text-white/40 text-xs md:text-sm font-mono leading-relaxed mb-10 max-w-sm">
+              a short log of how i stopped using the world and started building it.
+              <br />
+              no jargon, just the trajectory.
+            </p>
+          </div>
 
-          <div className="space-y-1.5 max-w-xl">
+          <div className="space-y-1.5 max-w-xl pb-20">
             {timeline.map((item, i) => (
               <div key={i} className="flex items-start gap-2 group">
                 <span className="text-white/20 mt-0.5 shrink-0 text-[10px]">›</span>
@@ -66,8 +68,8 @@ export default function BeMePage() {
           </div>
         </div>
 
-        <div className="lg:flex-1 flex items-center justify-center lg:justify-end relative overflow-hidden">
-          <div className="relative w-full h-[60vh] lg:h-screen">
+        <div className="lg:flex-1 hidden lg:flex items-center justify-end sticky top-0 h-screen relative overflow-hidden">
+          <div className="relative w-full h-full">
             <Image
               src="/banner.png"
               alt="Gaurav"
