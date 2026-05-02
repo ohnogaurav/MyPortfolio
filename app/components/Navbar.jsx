@@ -16,7 +16,7 @@ const dropdownLinks = [
   { label: "Blog", href: "/blog" },
   { label: "Life Beyond Code", href: "/life" },
   { label: "Non-Tech Skills", href: "/#nontechskills" },
-  { label: "BE-ME", href: "/be-me" },
+  { label: "BE-ME", href: "/beme" },
 ];
 
 export default function Navbar() {
