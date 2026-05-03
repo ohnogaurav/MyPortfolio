@@ -133,6 +133,7 @@ export default function Navbar() {
 
           <a
             href={links.resume}
+            download
             className="ml-2 flex items-center gap-1.5 border border-accent text-accent font-mono text-xs px-3 py-1.5 rounded hover:bg-accent hover:text-black transition-colors duration-200"
           >
             Resume
@@ -171,6 +172,7 @@ export default function Navbar() {
           ))}
           <a
             href={links.resume}
+            download
             className="mt-2 btn-primary w-fit"
           >
             Resume ↓

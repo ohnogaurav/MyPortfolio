@@ -107,7 +107,7 @@ export default function Hero() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
-            <a href={links.resume} className="btn-outline">
+            <a href={links.resume} download className="btn-outline">
               Resume ↓
             </a>
             <a href="#contact" className="btn-outline">
