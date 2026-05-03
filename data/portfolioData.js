@@ -89,16 +89,17 @@ export const projects = [
 export const experience = [
   {
   id: 1,
-  role: "Automation and Data Intern",
-  company: "Automation Ace Inc.",
-  duration: "Sep 2025 – Jan 2026",
-  type: "Internship",
+  role: "Independent Software Developer",
+  company: "Self",
+  duration: "Jan 2023 – Present",
+  type: "Experience",
   points: [
-    "Processed and cleaned operational datasets (nulls, duplicates, inconsistencies) to prepare them for analysis and reporting.",
-    "Wrote SQL queries to extract insights and support business reporting workflows.",
-    "Automated repetitive data handling tasks, reducing manual effort by ~30%.",
+    "Built backend systems and data-driven applications focusing on reliability and scalability",
+    "Designed modular and reusable components to improve development efficiency",
+    "Optimized system performance through debugging, profiling, and iterative improvements",
+    "Developed and maintained end-to-end projects across APIs, automation, and data processing"
   ],
-  tech: ["Python", "SQL", "Selenium", "PowerShell", "APIs"],
+  tech: ["Python", "SQL", "APIs", "System Design", "Debugging"],
 },
   {
     id: 2,
@@ -124,17 +125,7 @@ export const experience = [
   ],
   tech: [],
 },
-{
-  id: 4,
-  role: "10th Standard",
-  company: "Kendriya Vidyalaya Kankinara",
-  duration: "2017 – 2018",
-  points: [
-    "Secured 86.6% with strong performance in mathematics and science.",
-    "Developed early interest in logical reasoning and technical subjects.",
-  ],
-  tech: [],
-},
+
 ];
 
 export const skills = {
