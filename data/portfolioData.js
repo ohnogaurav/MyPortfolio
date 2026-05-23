@@ -43,7 +43,7 @@ export const projects = [
     tech: ["Flask", "Python 3", "Scapy", "BeautifulSoup", "Plotly", "Docker"],
     live: "https://huggingface.co/spaces/ohnogaurav/Argus",
     github: "https://github.com/ohnogaurav/Argus",
-    category: "Cloud",
+    category: "Security",
     featured: true,
     image: "/project/Argus.png",
     stats: "SOC Dashboard",
