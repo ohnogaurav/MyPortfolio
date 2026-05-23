@@ -126,7 +126,7 @@ export const research = [
     id: 1,
     title: "Face Recognition Attendance System (Edge + Cloud)",
     description: "Built an automated attendance system using OpenCV-based facial recognition with location binding to prevent proxy marking, backed by cloud storage for real-time tracking.",
-    tags: ["Computer Vision", "Cloud", "Automation"],
+    tags: ["Computer Vision", "Security", "Automation"],
     link: "#",
     year: "In progress",
   },
