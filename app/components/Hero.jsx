@@ -51,8 +51,12 @@ function SpotifyNowPlaying() {
           <span className="text-text-secondary">
             <span className="text-text-tertiary mr-1">{track.isPlaying ? "Now Playing" : "Last Played"}:</span>
             <span className="text-accent ml-1">{track.title}</span>
-            {" — "}
-            {track.artist}
+            {track.artist && (
+              <>
+                {" — "}
+                {track.artist}
+              </>
+            )}
           </span>
         </>
       ) : (

@@ -56,7 +56,16 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  const isActive = (href) => activeSection === href.replace("#", "");
+  const isActive = (href) => {
+    if (href.includes("#")) {
+      const anchor = href.split("#")[1];
+      return activeSection === anchor;
+    }
+    if (typeof window !== "undefined") {
+      return window.location.pathname === href;
+    }
+    return false;
+  };
 
   return (
     <nav
@@ -77,7 +86,7 @@ export default function Navbar() {
               key={l.href}
               href={l.href}
               className={`px-3 py-1.5 font-mono text-xs tracking-wide transition-colors duration-200 rounded ${
-                isActive(l.href.replace("/", ""))
+                isActive(l.href)
                   ? "text-accent"
                   : "text-text-secondary hover:text-text-primary"
               }`}

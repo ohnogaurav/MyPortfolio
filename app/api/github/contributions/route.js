@@ -33,8 +33,8 @@ export async function GET(request) {
     }
 
     const filtered = data.items.filter(item => {
-      return item.pull_request && item.state === "closed" && (item.comments > 0 || (item.reactions && item.reactions.total_count > 0));
-    }).slice(0, 5);
+      return item.pull_request;
+    }).slice(0, 6);
 
     const contributions = filtered.map(item => {
       const repoUrlParts = item.repository_url.split("/");

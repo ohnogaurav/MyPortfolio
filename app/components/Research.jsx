@@ -28,9 +28,15 @@ export default function Research() {
                       <span key={t} className="tag">{t}</span>
                     ))}
                   </div>
-                  <a href={item.link} className="btn-outline text-xs px-3 py-1.5">
-                    Explore →
-                  </a>
+                  {item.link && item.link !== "#" ? (
+                    <a href={item.link} className="btn-outline text-xs px-3 py-1.5">
+                      Explore →
+                    </a>
+                  ) : (
+                    <span className="font-mono text-xs text-text-tertiary select-none">
+                      Coming soon
+                    </span>
+                  )}
                 </div>
               </div>
             ))}

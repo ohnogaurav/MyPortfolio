@@ -17,7 +17,7 @@ export default function BlogPage({ params }) {
       <main className="min-h-screen pt-24 pb-16">
         <article className="section-pad">
           <div className="max-w-[700px] mx-auto">
-            <Link href="/" className="btn-outline text-sm px-4 py-2 mb-12 inline-flex items-center gap-2 w-fit">
+            <Link href="/" className="btn-outline text-sm px-4 py-2 mb-12 inline-flex items-center gap-2 w-fit group">
               <span className="transform group-hover:-translate-x-1 transition-transform">←</span>
               Back to Portfolio
             </Link>

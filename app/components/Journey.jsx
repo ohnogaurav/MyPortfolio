@@ -22,7 +22,7 @@ function JourneyCard({ item, index }) {
           </div>
           <div className="flex flex-col sm:items-end gap-1">
             <span className="font-mono text-xs text-text-tertiary">{item.duration}</span>
-            <span className="tag w-fit">{item.type}</span>
+            {item.type && <span className="tag w-fit">{item.type}</span>}
           </div>
         </div>
 
