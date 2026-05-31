@@ -3,8 +3,8 @@ export const personal = {
   role: "Aspiring Backend Engineer",
   tagline: "I build systems that scale and interfaces that matter.",
   bio: "Backend-focused developer with hands-on experience in automation, APIs, and data-driven applications. I enjoy building systems that reduce manual work, handle real-world data, and scale reliably. Currently strengthening my skills in backend architecture and machine learning-based applications.",
-  focusAreas: ["Backend Development","Automation Systems","APIs & Data Workflows","Machine Learning Applications"
-],
+  focusAreas: ["Backend Development", "Automation Systems", "APIs & Data Workflows", "Machine Learning Applications"
+  ],
   careerDirection: "Building reliable backend systems and practical ML-powered applications that solve real problems and improve efficiency.",
   currentlyBuilding: "A distributed task queue with adaptive rate limiting in Go",
   location: "Jalandhar, India",
@@ -64,23 +64,23 @@ export const projects = [
 
 export const experience = [
   {
-  id: 1,
-  role: "Independent Software Developer",
-  company: "Self",
-  duration: "Jan 2023 – Present",
-  type: "Experience",
-  points: [
-    "Built backend systems and data-driven applications focusing on reliability and scalability",
-    "Designed modular and reusable components to improve development efficiency",
-    "Optimized system performance through debugging, profiling, and iterative improvements",
-    "Developed and maintained end-to-end projects across APIs, automation, and data processing"
-  ],
-  tech: ["Python", "SQL", "APIs", "System Design", "Debugging"],
-},
+    id: 1,
+    role: "Independent Software Developer",
+    company: "Self",
+    duration: "Jan 2023 – Present",
+    type: "Experience",
+    points: [
+      "Built backend systems and data-driven applications focusing on reliability and scalability",
+      "Designed modular and reusable components to improve development efficiency",
+      "Optimized system performance through debugging, profiling, and iterative improvements",
+      "Developed and maintained end-to-end projects across APIs, automation, and data processing"
+    ],
+    tech: ["Python", "SQL", "APIs", "System Design", "Debugging"],
+  },
   {
     id: 2,
     role: "B.Tech in Computer Science and Engineering",
-    company: "Lovely Professional University",
+    company: "Lovely Professional University 7.57/10.00",
     duration: "Aug 2022 – July 2026",
     type: "Full-time",
     points: [
@@ -91,24 +91,24 @@ export const experience = [
     tech: [],
   },
   {
-  id: 3,
-  role: "12th Standard (PCM)",
-  company: "Kendriya Vidyalaya NSG Manesar",
-  duration: "2020 – 2021",
-  type: "School",
-  points: [
-    "Secured 89% with focus on Physics, Chemistry, and Mathematics.",
-    "Built early foundation in analytical thinking and problem-solving.",
-  ],
-  tech: [],
-},
+    id: 3,
+    role: "12th Standard (PCM)",
+    company: "Kendriya Vidyalaya NSG Manesar 89%",
+    duration: "2020 – 2021",
+    type: "School",
+    points: [
+      "Secured 89% with focus on Physics, Chemistry, and Mathematics.",
+      "Built early foundation in analytical thinking and problem-solving.",
+    ],
+    tech: [],
+  },
 
 ];
 
 export const skills = {
   languages: ["Python", "SQL (MySQL)", "C++"],
   frameworks: ["Flask (basic)", "FastAPI (basic)"],
-  devops: ["Git", "GitHub","AWS","Docker"],
+  devops: ["Git", "GitHub", "AWS", "Docker"],
   databases: ["MySQL", "MongoDB (Atlas basics)"],
   tools: [
     "Selenium",
@@ -139,7 +139,7 @@ export const research = [
     link: "#",
     year: "2025",
   },
-  
+
 ];
 
 export const blog = [
