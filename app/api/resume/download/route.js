@@ -19,7 +19,7 @@ async function sendDiscordNotification(webhookUrl, info) {
               inline: true,
             },
             {
-              name: "⏰ Time (UTC)",
+              name: "⏰ Time (IST)",
               value: info.timestamp,
               inline: true,
             },
@@ -83,12 +83,25 @@ export async function GET(request) {
     "";
   const city = request.headers.get("x-vercel-ip-city") || "";
 
+  const now = new Date();
+  const timestampIST =
+    now.toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    }) + " IST";
+
   const info = {
     ip,
     userAgent,
     country,
     city,
-    timestamp: new Date().toUTCString(),
+    timestamp: timestampIST,
   };
 
   // Trigger notifications asynchronously in background
