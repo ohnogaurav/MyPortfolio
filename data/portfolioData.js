@@ -205,7 +205,7 @@ export const links = {
   twitter: "#",
   email: "gauravatwork17@gmail.com",
   phone: "+91 9007979492",
-  resume: "/resume.pdf",
+  resume: "/api/resume/download",
   spotify: "#",
 };
 
