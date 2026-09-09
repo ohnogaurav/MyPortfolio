@@ -1,4 +1,4 @@
-import { personal, links, research } from "../../data/portfolioData";;
+import { personal, links, research } from "../../data/portfolioData";
 
 const socialLinks = [
   {

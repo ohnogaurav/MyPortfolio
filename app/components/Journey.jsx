@@ -1,4 +1,4 @@
-import { experience } from "../../data/portfolioData";;
+import { experience } from "../../data/portfolioData";
 
 function JourneyCard({ item, index }) {
   return (

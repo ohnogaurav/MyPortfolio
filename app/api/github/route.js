@@ -1,7 +1,7 @@
-import { githubFallback } from "../../../data/portfolioData";;
+import { githubFallback } from "../../../data/portfolioData";
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_USERNAME = process.env.GITHUB_USERNAME || "alexrivera";
+const GITHUB_USERNAME = process.env.GITHUB_USERNAME || "ohnogaurav";
 
 export async function GET() {
   try {

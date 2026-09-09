@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { personal, links, projects } from "../../data/portfolioData";;
+import { personal, links, projects } from "../../data/portfolioData";
 
 function SpotifyNowPlaying() {
   const [track, setTrack] = useState(null);

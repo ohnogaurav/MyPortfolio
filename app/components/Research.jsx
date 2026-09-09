@@ -1,4 +1,4 @@
-import { research } from "../../data/portfolioData";;
+import { research } from "../../data/portfolioData";
 
 export default function Research() {
   return (

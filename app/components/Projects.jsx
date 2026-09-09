@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { personal, links, projects } from "../../data/portfolioData";;
+import { personal, links, projects } from "../../data/portfolioData";
 
 const FILTERS = ["All", "ML", "Backend", "Mobile", "Security"];
 

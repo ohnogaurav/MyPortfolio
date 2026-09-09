@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { personal, links } from "../../data/portfolioData";;
+import { personal, links } from "../../data/portfolioData";
 
 function SpotifyFooterWidget() {
   const [track, setTrack] = useState(null);

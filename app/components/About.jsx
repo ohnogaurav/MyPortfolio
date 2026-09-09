@@ -1,4 +1,4 @@
-import { personal, links } from "../../data/portfolioData";;
+import { personal, links } from "../../data/portfolioData";
 
 export default function About() {
   return (

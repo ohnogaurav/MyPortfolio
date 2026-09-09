@@ -1,4 +1,4 @@
-import { nonTechSkills } from "../../data/portfolioData";;
+import { nonTechSkills } from "../../data/portfolioData";
 
 export default function NonTechSkills() {
   return (
