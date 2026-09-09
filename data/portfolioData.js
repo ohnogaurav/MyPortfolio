@@ -80,7 +80,7 @@ export const experience = [
   {
     id: 2,
     role: "B.Tech in Computer Science and Engineering",
-    company: "Lovely Professional University 7.57/10.00",
+    company: "Lovely Professional University 7.67/10.00",
     duration: "Aug 2022 – July 2026",
     type: "Full-time",
     points: [
